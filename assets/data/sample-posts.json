@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction to Golang",
+    "description": "Learn the basics of Golang programming language.",
+    "body": "Golang, also known as Go, is an open-source programming language created by Google. It is statically typed, compiled, and designed for scalability and concurrency.",
+    "created_at": "2024-11-01T10:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 2,
+    "title": "Setting Up Your Go Development Environment",
+    "description": "Steps to set up Go on your system.",
+    "body": "To begin developing with Go, you need to install the Go binary on your system. You can download it from the official Go website.",
+    "created_at": "2024-11-02T12:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 3,
+    "title": "Understanding Go's Concurrency Model",
+    "description": "A deep dive into Go's goroutines and channels.",
+    "body": "Go’s concurrency model is built around goroutines, which are lightweight threads, and channels, which allow communication between goroutines.",
+    "created_at": "2024-11-03T14:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 4,
+    "title": "Exploring Go Modules",
+    "description": "Learn how to manage dependencies in Go using Go Modules.",
+    "body": "Go Modules simplify the management of dependencies. With Go modules, you can specify your dependencies and versioning within your Go project.",
+    "created_at": "2024-11-04T15:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 5,
+    "title": "Creating RESTful APIs with Golang",
+    "description": "A beginner's guide to building REST APIs in Go.",
+    "body": "In this tutorial, we will cover how to create a simple REST API using Go’s net/http package and how to handle JSON responses.",
+    "created_at": "2024-11-05T16:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 6,
+    "title": "Error Handling in Go",
+    "description": "Learn how Go handles errors with its unique error type.",
+    "body": "In Go, errors are values. Instead of using exceptions, functions that can fail return an error value, which must be checked.",
+    "created_at": "2024-11-06T17:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 7,
+    "title": "Go Data Structures",
+    "description": "Understanding arrays, slices, maps, and structs in Go.",
+    "body": "Go provides several built-in data structures such as arrays, slices, maps, and structs. Each serves different purposes and is used based on specific requirements.",
+    "created_at": "2024-11-07T18:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 8,
+    "title": "Testing in Go",
+    "description": "How to write tests in Go using the testing package.",
+    "body": "Testing is an important part of Go programming. Go provides a built-in testing package, which allows you to create unit tests and benchmark tests easily.",
+    "created_at": "2024-11-08T19:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 9,
+    "title": "Go Interfaces and Composition",
+    "description": "A look into interfaces and composition in Go.",
+    "body": "Go does not have inheritance, but it has interfaces and composition. This allows for flexible and reusable code.",
+    "created_at": "2024-11-09T20:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 10,
+    "title": "Introduction to Go Routines and Channels",
+    "description": "Learn how to implement concurrency in Go using goroutines and channels.",
+    "body": "Goroutines are functions that run concurrently with other functions. Channels are used to communicate between goroutines.",
+    "created_at": "2024-11-10T21:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 11,
+    "title": "Building Microservices in Go",
+    "description": "An introduction to building microservices using Go.",
+    "body": "Microservices architecture can be built with Go due to its lightweight nature. In this post, we’ll cover the steps to create and deploy Go microservices.",
+    "created_at": "2024-11-11T22:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 12,
+    "title": "Go's Standard Library",
+    "description": "An overview of some of the most useful packages in Go’s standard library.",
+    "body": "Go has a rich standard library. Some commonly used packages include fmt, http, os, and strconv for building applications.",
+    "created_at": "2024-11-12T23:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 13,
+    "title": "Understanding Go's Memory Management",
+    "description": "A guide to Go’s memory management and garbage collection.",
+    "body": "Go automatically manages memory using garbage collection. Understanding how memory is allocated and freed is crucial for optimizing performance.",
+    "created_at": "2024-11-13T10:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 14,
+    "title": "Building a Blog Application with Go",
+    "description": "Step-by-step tutorial to build a simple blog app with Go.",
+    "body": "In this post, we’ll walk through creating a blog application using Go, including setting up the server, creating a database, and implementing CRUD operations.",
+    "created_at": "2024-11-14T11:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 15,
+    "title": "Go for Web Scraping",
+    "description": "Using Go to scrape websites and extract useful data.",
+    "body": "Go is great for web scraping. In this tutorial, we will show you how to scrape data from websites using Go's net/http and goquery packages.",
+    "created_at": "2024-11-15T12:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 16,
+    "title": "Building a REST API with Go and MongoDB",
+    "description": "Learn how to create a REST API in Go connected to MongoDB.",
+    "body": "In this tutorial, we will build a REST API with Go that connects to a MongoDB database for storing data.",
+    "created_at": "2024-11-16T13:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 17,
+    "title": "Introduction to Go's Reflection",
+    "description": "An overview of reflection in Go and how to use it.",
+    "body": "Reflection allows you to inspect and modify Go objects at runtime. It's a powerful feature for building generic and flexible code.",
+    "created_at": "2024-11-17T14:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 18,
+    "title": "Go Performance Tips",
+    "description": "Improve the performance of your Go applications with these tips.",
+    "body": "Go provides a fast runtime, but there are ways to make your applications even more efficient. We’ll go over optimization tips such as reducing memory allocations and improving concurrency.",
+    "created_at": "2024-11-18T15:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 19,
+    "title": "Go's String Handling",
+    "description": "A guide to working with strings in Go.",
+    "body": "Go provides various ways to manipulate strings, including formatting, concatenation, and conversion between string types.",
+    "created_at": "2024-11-19T16:00:00Z",
+    "updated_at": null
+  },
+  {
+    "id": 20,
+    "title": "Go in Production",
+    "description": "Best practices for running Go applications in production.",
+    "body": "When running Go applications in production, you need to consider scalability, monitoring, logging, and error handling to ensure reliability and performance.",
+    "created_at": "2024-11-20T17:00:00Z",
+    "updated_at": null
+  }
+]
