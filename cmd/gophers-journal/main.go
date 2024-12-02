@@ -9,8 +9,7 @@ import (
 
 func main() {
 	// Define routes
-	http.HandleFunc("/", handlers.HomeHandler)
-	http.HandleFunc("/posts", handlers.GetAllPosts)
+	http.HandleFunc("/api/posts", handlers.GetAllPosts)
 
 	// Start the server
 	fmt.Println("Listening on port 8080...")

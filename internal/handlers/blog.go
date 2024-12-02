@@ -1,14 +1,9 @@
 package handlers
 
 import (
-	"fmt"
 	"net/http"
 	"os"
 )
-
-func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Welcome to Gopher's Journal!")
-}
 
 func GetAllPosts(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
