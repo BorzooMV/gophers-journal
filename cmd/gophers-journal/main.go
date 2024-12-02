@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/BorzooMV/gophers-journal/internal/handlers"
+	"github.com/BorzooMV/gophers-journal/internal/router"
 )
 
 func main() {
 	// Define routes
-	http.HandleFunc("/api/posts", handlers.GetAllPosts)
+	http.HandleFunc("/api/posts", router.PostsRouter)
 
 	// Start the server
 	fmt.Println("Listening on port 8080...")
