@@ -13,6 +13,6 @@ func PostsRouter(w http.ResponseWriter, r *http.Request) {
 	case http.MethodPost:
 		handlers.CreateNewPost(w, r)
 	default:
-		http.Error(w, "Wrong method provided", http.StatusBadRequest)
+		http.Error(w, "wrong method provided", http.StatusBadRequest)
 	}
 }
