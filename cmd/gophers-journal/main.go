@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strings"
 
 	"github.com/BorzooMV/gophers-journal/internal/router"
 	"github.com/BorzooMV/gophers-journal/internal/services"
@@ -23,7 +24,13 @@ func main() {
 
 	// Define routes
 	appRouter := router.Router{DB: db}
-	http.HandleFunc("/api/posts", appRouter.PostsRouter)
+	http.Handle("/api/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if strings.HasPrefix(r.URL.Path, "/api/posts") {
+			appRouter.PostsRouter(w, r)
+			return
+		}
+		http.NotFound(w, r)
+	}))
 
 	// Start the server
 	fmt.Println("Listening on port 8080...")
