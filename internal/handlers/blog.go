@@ -1,27 +1,43 @@
 package handlers
 
 import (
+	"database/sql"
 	"encoding/json"
+	"fmt"
 	"net/http"
-	"os"
 	"time"
 
 	"github.com/BorzooMV/gophers-journal/internal/model"
 )
 
-func GetAllPosts(w http.ResponseWriter, r *http.Request) {
-	postsFile, err := os.ReadFile("assets/data/sample-posts.json")
+func GetAllPosts(w http.ResponseWriter, r *http.Request, db *sql.DB) {
+	qs := "SELECT * FROM posts;"
+	rows, err := db.Query(qs)
 	if err != nil {
-		http.Error(w, "couldn't read the posts file!", http.StatusInternalServerError)
-		return
+		http.Error(w, fmt.Sprintf("Can't fetch data from database:\n%v", err.Error()), http.StatusInternalServerError)
+	}
+	defer rows.Close()
+
+	allPosts := []model.Post{}
+
+	for rows.Next() {
+		var p model.Post
+		err := rows.Scan(&p.Id, &p.Title, &p.Description, &p.Body, &p.CreatedAt, &p.UpdatedAt)
+		if err != nil {
+			http.Error(w, fmt.Sprintf("couldn't scan the row\n%v", err.Error()), http.StatusInternalServerError)
+		}
+
+		allPosts = append(allPosts, p)
 	}
 
-	w.Header().Set("Content-Type", "application/json")
-	w.Write(postsFile)
-
+	w.Header().Set("Content-type", "application/json")
+	err = json.NewEncoder(w).Encode(allPosts)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("couldn't encode posts\n%v", err.Error()), http.StatusInternalServerError)
+	}
 }
 
-func CreateNewPost(w http.ResponseWriter, r *http.Request) {
+func CreateNewPost(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	var newPost model.Post
 
 	// Decode the incoming request body
@@ -42,44 +58,13 @@ func CreateNewPost(w http.ResponseWriter, r *http.Request) {
 	// Add a timestamp to the new post
 	newPost.CreatedAt = time.Now()
 
-	// Read existing posts from the JSON file
-	jsonFile, err := os.Open("assets/data/sample-posts.json")
+	qs := "INSERT INTO posts (title, description, body) VALUES('First Post','Simple post description','This is the body of our post');"
+
+	// Query database
+	_, err = db.Query(qs)
 	if err != nil {
-		http.Error(w, "couldn't open the file", http.StatusInternalServerError)
-		return
+		http.Error(w, fmt.Sprintf("couldn't query database\n%v", err.Error()), http.StatusInternalServerError)
 	}
 
-	var prevPosts []model.Post
-	err = json.NewDecoder(jsonFile).Decode(&prevPosts)
-	if err != nil {
-		http.Error(w, "Couldn't decode JSON file", http.StatusInternalServerError)
-		return
-	}
-
-	jsonFile.Close()
-
-	// Append the new post to the previous posts
-	prevPosts = append(prevPosts, newPost)
-
-	// Reopen the file in write mode to overwrite the content
-	jsonFile, err = os.OpenFile("assets/data/sample-posts.json", os.O_WRONLY|os.O_TRUNC, 0644)
-	if err != nil {
-		http.Error(w, "Couldn't open the file for writing", http.StatusInternalServerError)
-		return
-	}
-	defer jsonFile.Close()
-
-	// Write the updated data back to the file
-	err = json.NewEncoder(jsonFile).Encode(prevPosts)
-	if err != nil {
-		http.Error(w, "Couldn't encode JSON file", http.StatusInternalServerError)
-		return
-	}
-
-	// Respond with the created post
-	w.Header().Set("Content-Type", "application/json")
-	err = json.NewEncoder(w).Encode(newPost)
-	if err != nil {
-		http.Error(w, "Couldn't encode response.", http.StatusInternalServerError)
-	}
+	json.NewEncoder(w).Encode(newPost)
 }
