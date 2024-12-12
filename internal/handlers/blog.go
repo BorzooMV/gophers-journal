@@ -100,3 +100,28 @@ func DeletePostWithId(w http.ResponseWriter, db *sql.DB, id string) {
 	w.Header().Set("Content-Type", "application.json")
 	json.NewEncoder(w).Encode(res)
 }
+
+func UpdatePostWithId(w http.ResponseWriter, r *http.Request, db *sql.DB, id string) {
+	var updatedPost model.Post
+	var reqBody struct {
+		Title       string `json:"title"`
+		Description string `json:"description"`
+		Body        string `json:"body"`
+	}
+	qs := "UPDATE posts SET title = $1, description = $2, body = $3, updated_at = NOW() WHERE id = $4 RETURNING id, title, description, body, created_at, updated_at"
+
+	err := json.NewDecoder(r.Body).Decode(&reqBody)
+	if err != nil {
+		http.Error(w, "can't decode body", http.StatusBadRequest)
+	}
+
+	row := db.QueryRow(qs, reqBody.Title, reqBody.Description, reqBody.Body, id)
+
+	err = row.Scan(&updatedPost.Id, &updatedPost.Title, &updatedPost.Description, &updatedPost.Body, &updatedPost.CreatedAt, &updatedPost.UpdatedAt)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("couldn't query database\n%v", err.Error()), http.StatusInternalServerError)
+		return
+	}
+	w.Header().Set("Content-Type", "application.json")
+	json.NewEncoder(w).Encode(updatedPost)
+}
