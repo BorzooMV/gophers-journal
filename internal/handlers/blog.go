@@ -71,10 +71,11 @@ func CreateNewPost(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	// Add a timestamp to the new post
 	newPost.CreatedAt = time.Now()
 
-	qs := "INSERT INTO posts (title, description, body) VALUES($1,$2,$3);"
+	qs := "INSERT INTO posts (title, description, body) VALUES($1,$2,$3) RETURNING id;"
 
 	// Query database
-	_, err = db.Exec(qs, newPost.Title, newPost.Description, newPost.Body)
+	res := db.QueryRow(qs, newPost.Title, newPost.Description, newPost.Body)
+	err = res.Scan(&newPost.Id)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("couldn't query database\n%v", err.Error()), http.StatusInternalServerError)
 		return
