@@ -85,11 +85,11 @@ func CreateNewPost(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 }
 
 func DeletePostWithId(w http.ResponseWriter, db *sql.DB, id string) {
-	qs := "DELETE FROM posts WHERE id = $1 RETURNING id"
-	type Res struct {
+	var res struct {
 		Id int64 `json:"id"`
 	}
-	var res Res
+
+	qs := "DELETE FROM posts WHERE id = $1 RETURNING id"
 
 	row := db.QueryRow(qs, id)
 	err := row.Scan(&res.Id)
