@@ -22,6 +22,10 @@ func (ro Router) PostsRouter(w http.ResponseWriter, r *http.Request) {
 		}
 	case http.MethodPost:
 		handlers.CreateNewPost(w, r, ro.DB)
+	case http.MethodDelete:
+		if hasValidSuffix, suffix := hasAcceptableSuffix(r.URL.Path, "/api/posts/"); hasValidSuffix {
+			handlers.DeletePostWithId(w, ro.DB, suffix)
+		}
 	default:
 		http.Error(w, "wrong method provided", http.StatusBadRequest)
 	}

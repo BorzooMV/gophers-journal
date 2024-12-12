@@ -83,3 +83,20 @@ func CreateNewPost(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 
 	json.NewEncoder(w).Encode(newPost)
 }
+
+func DeletePostWithId(w http.ResponseWriter, db *sql.DB, id string) {
+	qs := "DELETE FROM posts WHERE id = $1 RETURNING id"
+	type Res struct {
+		Id int64 `json:"id"`
+	}
+	var res Res
+
+	row := db.QueryRow(qs, id)
+	err := row.Scan(&res.Id)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("couldn't query database\n%v", err.Error()), http.StatusInternalServerError)
+		return
+	}
+	w.Header().Set("Content-Type", "application.json")
+	json.NewEncoder(w).Encode(res)
+}
