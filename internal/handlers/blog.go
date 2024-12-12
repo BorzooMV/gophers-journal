@@ -37,6 +37,19 @@ func GetAllPosts(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	}
 }
 
+func GetPostWithId(w http.ResponseWriter, r *http.Request, db *sql.DB, id string) {
+	qs := "SELECT * FROM posts WHERE id = $1 LIMIT 1;"
+	var post model.Post
+	row := db.QueryRow(qs, id)
+	err := row.Scan(&post.Id, &post.Title, &post.Description, &post.Body, &post.CreatedAt, &post.UpdatedAt)
+	if err != nil {
+		http.Error(w, "can't find requested data", http.StatusNotFound)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(post)
+}
+
 func CreateNewPost(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	var newPost model.Post
 
