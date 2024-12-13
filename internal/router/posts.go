@@ -31,7 +31,7 @@ func (ro Router) PostsRouter(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "wrong method provided", http.StatusBadRequest)
 		}
 
-	case http.MethodPatch:
+	case http.MethodPut:
 		if hasValidSuffix, suffix := hasAcceptableSuffix(r.URL.Path, "/api/posts/"); hasValidSuffix {
 			handlers.UpdatePostWithId(w, r, ro.DB, suffix)
 		} else {
