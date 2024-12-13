@@ -1,0 +1,102 @@
+[
+  {
+    "title": "Introduction to Golang",
+    "description": "An overview of Go programming language and its features.",
+    "body": "Golang, developed by Google, is a statically typed, compiled language designed for efficiency and scalability. It is often used in backend development, cloud infrastructure, and microservices."
+  },
+  {
+    "title": "PostgreSQL Basics",
+    "description": "Learn the fundamentals of PostgreSQL.",
+    "body": "PostgreSQL is an open-source, object-relational database known for its extensibility and compliance with SQL standards."
+  },
+  {
+    "title": "RESTful APIs Explained",
+    "description": "What are RESTful APIs and how do they work?",
+    "body": "RESTful APIs use HTTP requests to perform CRUD operations—Create, Read, Update, Delete—on resources, making them a cornerstone of web development."
+  },
+  {
+    "title": "Understanding HTTP Methods",
+    "description": "A guide to the common HTTP methods like GET, POST, PUT, and DELETE.",
+    "body": "HTTP methods dictate the action a request performs. GET retrieves data, POST submits data, PUT updates resources, and DELETE removes them."
+  },
+  {
+    "title": "Docker for Beginners",
+    "description": "An introduction to containerization with Docker.",
+    "body": "Docker simplifies application deployment by packaging code, libraries, and dependencies into containers that run anywhere."
+  },
+  {
+    "title": "Version Control with Git",
+    "description": "Managing code versions with Git.",
+    "body": "Git allows developers to track changes, collaborate, and manage project history using repositories, commits, and branches."
+  },
+  {
+    "title": "Introduction to Unit Testing",
+    "description": "The importance of testing in software development.",
+    "body": "Unit tests help ensure individual components work as expected, increasing reliability and catching bugs early."
+  },
+  {
+    "title": "What is JSON?",
+    "description": "Learn about JavaScript Object Notation.",
+    "body": "JSON is a lightweight data format used to store and exchange information, often seen in APIs and configuration files."
+  },
+  {
+    "title": "Building a CLI in Go",
+    "description": "Create your first command-line tool using Golang.",
+    "body": "Golang's simplicity and power make it an excellent choice for building CLI tools that are fast and cross-platform."
+  },
+  {
+    "title": "Microservices Architecture",
+    "description": "An overview of microservices and their benefits.",
+    "body": "Microservices break applications into small, independent services that can be developed, deployed, and scaled independently."
+  },
+  {
+    "title": "Using Environment Variables",
+    "description": "How to manage secrets and configs with env variables.",
+    "body": "Environment variables store configuration settings, keeping sensitive data like credentials out of the codebase."
+  },
+  {
+    "title": "Working with SQL Joins",
+    "description": "A guide to SQL joins: INNER, LEFT, RIGHT, and FULL.",
+    "body": "SQL joins combine data from multiple tables, allowing for powerful queries and data relationships."
+  },
+  {
+    "title": "Concurrency in Go",
+    "description": "Understanding Goroutines and Channels in Go.",
+    "body": "Go's concurrency model uses Goroutines for lightweight threads and Channels for communication, enabling efficient multitasking."
+  },
+  {
+    "title": "Introduction to APIs",
+    "description": "A beginner's guide to Application Programming Interfaces.",
+    "body": "APIs allow software systems to communicate, enabling data exchange and integration across applications."
+  },
+  {
+    "title": "Deploying Go Applications",
+    "description": "How to deploy a Go app on a cloud platform.",
+    "body": "Deploying Go applications often involves compiling to a binary and using tools like Docker or Kubernetes for production readiness."
+  },
+  {
+    "title": "Understanding WebSockets",
+    "description": "A guide to real-time communication with WebSockets.",
+    "body": "WebSockets enable full-duplex communication between a client and server, ideal for real-time apps like chats and games."
+  },
+  {
+    "title": "Using ORM in Go",
+    "description": "How to simplify database access with ORMs in Golang.",
+    "body": "Object-Relational Mappers like GORM in Go map database tables to Go structs, making database interactions cleaner and easier."
+  },
+  {
+    "title": "What is CI/CD?",
+    "description": "Continuous Integration and Continuous Deployment explained.",
+    "body": "CI/CD pipelines automate code testing and deployment, ensuring faster and more reliable software delivery."
+  },
+  {
+    "title": "Structs in Golang",
+    "description": "Learn how to use structs for data organization in Go.",
+    "body": "Structs in Go are used to define custom data types, grouping related fields together for better data management."
+  },
+  {
+    "title": "Basic SQL Commands",
+    "description": "Essential SQL commands for database operations.",
+    "body": "SQL commands like SELECT, INSERT, UPDATE, and DELETE allow developers to interact with relational databases effectively."
+  }
+]
